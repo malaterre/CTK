@@ -105,6 +105,8 @@ SET(KIT_target_libraries)
 
 ctkFunctionGetTargetLibraries(KIT_target_libraries)
 
+list(APPEND KIT_target_libraries "/usr/lib/libLog4Qt.so")
+
 ctkMacroBuildLib(
   NAME ${PROJECT_NAME}
   EXPORT_DIRECTIVE ${KIT_export_directive}

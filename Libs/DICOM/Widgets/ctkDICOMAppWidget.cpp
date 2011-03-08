@@ -1,7 +1,10 @@
 // std includes
 #include <iostream>
 
-#include <dcmimage.h>
+#ifndef WIN32
+#define HAVE_CONFIG_H 
+#endif
+#include <dcmtk/dcmimgle/dcmimage.h>
 
 // Qt includes
 #include <QDebug>

@@ -129,11 +129,11 @@ bool ctkDICOMRetrievePrivate::retrieve ( QString UID, RetrieveType retriveType )
   // TODO: use this->SCU instead ?
   DcmSCU scu;
   scu.setAETitle ( OFString(this->CallingAETitle.toStdString().c_str()) );
-  scu.setPort ( this->CallingPort );
+  scu.setPeerPort ( this->CallingPort );
   scu.setPeerAETitle ( OFString(this->CalledAETitle.toStdString().c_str()) );
   scu.setPeerHostName ( OFString(this->Host.toStdString().c_str()) );
   scu.setPeerPort ( this->CalledPort );
-  scu.setMoveDestinationAETitle ( OFString(this->MoveDestinationAETitle.toStdString().c_str()) );
+  scu.setPeerAETitle( OFString(this->MoveDestinationAETitle.toStdString().c_str()) );
 
   logger.info ( "Setting Transfer Syntaxes" );
   OFList<OFString> transferSyntaxes;
@@ -175,6 +175,7 @@ bool ctkDICOMRetrievePrivate::retrieve ( QString UID, RetrieveType retriveType )
     }
 
   logger.debug ( "Sending Move Request" );
+#if 0
   MOVEResponses *responses = new MOVEResponses();
   OFCondition status = scu.sendMOVERequest ( 0, this->parameters, responses );
   if (!status.good())
@@ -237,6 +238,7 @@ bool ctkDICOMRetrievePrivate::retrieve ( QString UID, RetrieveType retriveType )
 
 
   delete responses;
+#endif
   return true;
 }
 

@@ -57,6 +57,10 @@ set (DCMQRSCP_STORE_DIR ${CMAKE_CURRENT_BINARY_DIR}/Testing)
 CONFIGURE_FILE( Resources/dcmqrscp.cfg.in dcmqrscp.cfg )
 set (DCMQRSCP_CONFIG ${CMAKE_CURRENT_BINARY_DIR}/dcmqrscp.cfg)
 
+find_package(DCMTK REQUIRED)
+list(APPEND KIT_target_libraries ${DCMTK_LIBRARIES})
+message("toto ${DCMTK_LIBRARIES}")
+
 ctkMacroBuildLib(
   NAME ${PROJECT_NAME}
   EXPORT_DIRECTIVE ${KIT_export_directive}

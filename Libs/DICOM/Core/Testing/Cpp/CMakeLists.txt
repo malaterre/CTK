@@ -23,6 +23,12 @@ SET(LIBRARY_NAME ${PROJECT_NAME})
 
 ADD_EXECUTABLE(${KIT}CppTests ${Tests})
 TARGET_LINK_LIBRARIES(${KIT}CppTests ${LIBRARY_NAME})
+# need libwrap:
+# /usr/lib/gcc/x86_64-linux-gnu/4.4.5/../../../../lib/libdcmnet.so: undefined reference to `hosts_access'
+# /usr/lib/gcc/x86_64-linux-gnu/4.4.5/../../../../lib/libdcmnet.so: undefined reference to `request_set'
+# /usr/lib/gcc/x86_64-linux-gnu/4.4.5/../../../../lib/libdcmnet.so: undefined reference to `request_init'
+
+TARGET_LINK_LIBRARIES(${KIT}CppTests -lxml2 -lssl -lcrypto -ldcmdsig -ltiff -ldcmnet -lwrap)
 
 SET( KIT_TESTS ${CPP_TEST_PATH}/${KIT}CppTests)
 

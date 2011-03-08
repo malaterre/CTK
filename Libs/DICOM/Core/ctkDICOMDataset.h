@@ -28,7 +28,7 @@
 #ifndef WIN32
   #define HAVE_CONFIG_H
 #endif
-#include <dcdatset.h> // DCMTK DcmDataset
+#include <dcmtk/dcmdata/dcdatset.h> // DCMTK DcmDataset
 
 #include <QtCore>
 

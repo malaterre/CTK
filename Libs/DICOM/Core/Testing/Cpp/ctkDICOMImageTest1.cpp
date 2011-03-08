@@ -8,7 +8,10 @@
 #include "ctkDICOMImage.h"
 
 // DCMTK includes
-#include <dcmimage.h>
+#ifndef WIN32
+#define HAVE_CONFIG_H 
+#endif
+#include <dcmtk/dcmimgle/dcmimage.h>
 
 // STD includes
 #include <iostream>

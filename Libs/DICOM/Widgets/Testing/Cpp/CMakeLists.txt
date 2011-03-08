@@ -14,6 +14,7 @@ SET(LIBRARY_NAME ${PROJECT_NAME})
 
 ADD_EXECUTABLE(${KIT}CppTests ${Tests})
 TARGET_LINK_LIBRARIES(${KIT}CppTests ${LIBRARY_NAME})
+TARGET_LINK_LIBRARIES(${KIT}CppTests -lxml2 -lssl -lcrypto -ldcmdsig -ltiff -ldcmnet -lwrap)
 
 SET( KIT_TESTS ${CPP_TEST_PATH}/${KIT}CppTests)
 

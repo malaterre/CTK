@@ -1,9 +1,9 @@
 
 #include "ctkDICOMDataset.h"
 
-#include <dctk.h>
-#include <dcostrmb.h>
-#include <dcistrmb.h>
+#include <dcmtk/dcmdata/dctk.h>
+#include <dcmtk/dcmdata/dcostrmb.h>
+#include <dcmtk/dcmdata/dcistrmb.h>
 
 #include <stdexcept>
 
